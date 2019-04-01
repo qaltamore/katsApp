@@ -2,6 +2,11 @@ import React from 'react';
 import { Root, View, Text } from 'native-base'
 import AppStackNavigator from './navigation/AppStackNavigator'
 import { createAppContainer } from 'react-navigation'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './redux'
+
+const store = createStore(reducer)
 
 export default class App extends React.Component {
     
@@ -33,9 +38,11 @@ export default class App extends React.Component {
 
         if (fontsLoaded) {
             return (
-                <Root>
-                    <AppContainer />
-                </Root>
+                <Provider store={store}>
+                    <Root>
+                        <AppContainer />
+                    </Root>
+                </Provider>
             )
         } else {
             return (

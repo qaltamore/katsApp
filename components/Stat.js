@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ProgressBar } from 'native-base'
+import { View, Text } from 'native-base'
 import { ProgressBarAndroid } from 'react-native'
 
 const Stat = (props) => {

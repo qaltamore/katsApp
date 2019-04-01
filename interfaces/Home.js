@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 import { Container, Content, Text, Button, View, Icon } from 'native-base'
 import katsImages from '../librairies/allKats'
+import otherImages from '../librairies/otherImages'
 import Stat from '../components/Stat'
 
 export default class Home extends React.Component {
@@ -9,7 +10,7 @@ export default class Home extends React.Component {
 		static navigationOptions = { title: 'Kats', header: null }
 
 		testHttpRequest() {
-			fetch('http://192.168.43.224:2999/testPost', {
+			/*fetch('http://192.168.43.224:2999/testPost', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
@@ -18,10 +19,12 @@ export default class Home extends React.Component {
 				body: JSON.stringify({
 					testId: '10',
 				}),
-			});
+			});*/
 		}
 
 		render() {
+				const {navigate} = this.props.navigation;
+
 				var level = "36"
 				var affection = "8"
 				var energy = "10"
@@ -39,26 +42,26 @@ export default class Home extends React.Component {
 															</View>
 													</View>
 													<View style={styles.katImgContainer}>
-															<Image source={ katsImages['01'] } style={styles.katImg} />
+															<Image source={ katsImages['02'] } style={styles.katImg} />
 													</View>
 													<View style={styles.containerAfterImg}>
 															<Icon name='paw'></Icon><Text> {affection}</Text>
 													</View>
 													<View style={styles.containerIcons}>
-															<Button onPress={this.testHttpRequest}>
-																	<Image source={ katsImages['01'] } style={styles.iconsImg} />
+															<Button style={styles.backgroundButton} onPress={() => navigate('Shop')}>
+																	<Image source={ otherImages['01'] } style={styles.iconsImg} />
 															</Button>
-															<Button>
-																	<Image source={ katsImages['01'] } style={styles.iconsImg} />
+															<Button style={styles.backgroundButton} onPress={this.testHttpRequest}>
+																	<Image source={ otherImages['02'] } style={styles.iconsImg} />
 															</Button>
-															<Button>
-																	<Image source={ katsImages['01'] } style={styles.iconsImg} />
+															<Button style={styles.backgroundButton} >
+																	<Image source={ otherImages['03'] } style={styles.iconsImg} />
 															</Button>
-															<Button>
-																	<Image source={ katsImages['01'] } style={styles.iconsImg} />
+															<Button style={styles.backgroundButton} >
+																	<Image source={ otherImages['04'] } style={styles.iconsImg} />
 															</Button>
-															<Button>
-																	<Image source={ katsImages['01'] } style={styles.iconsImg} />
+															<Button style={styles.backgroundButton} onPress={() => navigate('Attacks')}>
+																	<Image source={ otherImages['05'] } style={styles.iconsImg} />
 															</Button>
 													</View>
 											</View>
@@ -135,5 +138,9 @@ const styles = StyleSheet.create({
 		iconsImg: {
 				width: 50,
 				height: 50
+		},
+		backgroundButton: {
+				backgroundColor: 'white',
+				elevation: 0
 		}
 });
