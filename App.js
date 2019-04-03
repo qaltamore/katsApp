@@ -11,9 +11,9 @@ const store = createStore(reducer)
 export default class App extends React.Component {
     
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            fontsLoaded: false,
+            fontsLoaded: false
         }
         this.loadFonts();
     }

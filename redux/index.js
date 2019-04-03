@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import katStats from './katStats'
+import kat from './kat'
 
 export default combineReducers({
-    katStats
+    kat
 })

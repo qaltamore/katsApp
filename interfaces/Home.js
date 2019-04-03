@@ -7,6 +7,10 @@ import Stat from '../components/Stat'
 
 export default class Home extends React.Component {
 
+		constructor(props) {
+				super(props)
+		}
+
 		static navigationOptions = { title: 'Kats', header: null }
 
 		testHttpRequest() {
@@ -23,6 +27,7 @@ export default class Home extends React.Component {
 		}
 
 		render() {
+			console.log("test")
 				const {navigate} = this.props.navigation;
 
 				var level = "36"
@@ -42,7 +47,7 @@ export default class Home extends React.Component {
 															</View>
 													</View>
 													<View style={styles.katImgContainer}>
-															<Image source={ katsImages['02'] } style={styles.katImg} />
+															<Image source={ katsImages['Nero'] } style={styles.katImg} />
 													</View>
 													<View style={styles.containerAfterImg}>
 															<Icon name='paw'></Icon><Text> {affection}</Text>

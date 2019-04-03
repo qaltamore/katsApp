@@ -23,7 +23,8 @@ export default class Attacks extends React.Component {
         const {navigate} = this.props.navigation;
         
         //192.168.43.224
-        fetch('http://172.16.2.220:2999/getAttacks', {
+        //172.16.2.220
+        fetch('http://192.168.43.224:2999/getAttacks', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
