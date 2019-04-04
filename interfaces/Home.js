@@ -4,11 +4,13 @@ import { Container, Content, Text, Button, View, Icon } from 'native-base'
 import katsImages from '../librairies/allKats'
 import otherImages from '../librairies/otherImages'
 import Stat from '../components/Stat'
+import { connect } from 'react-redux'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
 
 		constructor(props) {
 				super(props)
+				console.log(props)
 		}
 
 		static navigationOptions = { title: 'Kats', header: null }
@@ -35,6 +37,13 @@ export default class Home extends React.Component {
 				var energy = "10"
 				var maxEnergy = "10"
 
+				var currentKat;
+
+				if(this.props.kat == null)
+						currentKat = 'Nero'
+				else
+						currentKat = this.props.kat
+						
 				return (
 					<Container>
 							<Content>
@@ -47,7 +56,7 @@ export default class Home extends React.Component {
 															</View>
 													</View>
 													<View style={styles.katImgContainer}>
-															<Image source={ katsImages['Nero'] } style={styles.katImg} />
+															<Image source={ katsImages[currentKat] } style={styles.katImg} />
 													</View>
 													<View style={styles.containerAfterImg}>
 															<Icon name='paw'></Icon><Text> {affection}</Text>
@@ -84,6 +93,14 @@ export default class Home extends React.Component {
 				)
 		}
 }
+
+//on connecte notre state global au state du composant
+const mapStateToProps = (state) => {
+	return state
+}
+
+//on se connecte au store global
+export default connect(mapStateToProps)(Home)
 
 const styles = StyleSheet.create({
 		container: {
