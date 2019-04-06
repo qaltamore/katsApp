@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Content, Text, View, Icon, Button } from 'native-base'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, AsyncStorage } from 'react-native'
 import { connect } from 'react-redux'
 import { setCurrentKatEnergy } from '../redux/kat/actions'
 
@@ -13,13 +13,9 @@ class Versus extends React.Component {
 
     static navigationOptions = { title: 'Kats', header: null }
 
-    componentDidUpdate() {
-        console.log("updated : ", this.props.kat)
-    }
-
     setMyCurrentKatEnergy() {
         console.log("actuel : ", this.props.kat)
-        this.props.setEnergy(8)
+        this.props.setEnergy(4)
     }
 
     render() {

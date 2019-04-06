@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet, Image, AsyncStorage } from 'react-native'
 import { Container, Content, Text, Button, View, Icon } from 'native-base'
 import katsImages from '../librairies/allKats'
 import otherImages from '../librairies/otherImages'
 import Stat from '../components/Stat'
 import { connect } from 'react-redux'
+import { setCurrentKatEnergy } from '../redux/kat/actions'
 
 class Home extends React.Component {
 
@@ -37,13 +38,10 @@ class Home extends React.Component {
 				var currentKat
 				var currentKatEnergy
 
-				console.log("essai : ", this.props.kat.katName, " / ", this.props.kat.energy)
-
 				if(this.props.kat.katName == null)
 						currentKat = 'Nero'
 				else
 						currentKat = this.props.kat.katName
-
 
 				if(this.props.kat.energy == null)
 						currentKatEnergy = 10
