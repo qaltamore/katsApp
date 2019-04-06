@@ -19,14 +19,8 @@ class Shop extends React.Component {
         this.props.setKat(kat)
     }
 
-    componentDidUpdate() {
-        console.log(this.props.kat)
-    }
-
     render() {
         const {navigate} = this.props.navigation;
-        
-        console.log("test : ", this.props.kat)
 
         return (
             <Container>

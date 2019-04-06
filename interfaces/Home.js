@@ -10,7 +10,6 @@ class Home extends React.Component {
 
 		constructor(props) {
 				super(props)
-				console.log(props)
 		}
 
 		static navigationOptions = { title: 'Kats', header: null }
@@ -29,7 +28,6 @@ class Home extends React.Component {
 		}
 
 		render() {
-			console.log("test")
 				const {navigate} = this.props.navigation;
 
 				var level = "36"
@@ -43,6 +41,12 @@ class Home extends React.Component {
 						currentKat = 'Nero'
 				else
 						currentKat = this.props.kat
+
+				/*setTimeout(function() {
+						setInterval(function() {
+								console.log("Test")
+						}, 1000)
+				}, 5000)*/
 						
 				return (
 					<Container>
@@ -65,10 +69,10 @@ class Home extends React.Component {
 															<Button style={styles.backgroundButton} onPress={() => navigate('Shop')}>
 																	<Image source={ otherImages['01'] } style={styles.iconsImg} />
 															</Button>
-															<Button style={styles.backgroundButton} onPress={this.testHttpRequest}>
+															<Button style={styles.backgroundButton} onPress={() => navigate('Versus')}>
 																	<Image source={ otherImages['02'] } style={styles.iconsImg} />
 															</Button>
-															<Button style={styles.backgroundButton} >
+															<Button style={styles.backgroundButton} onPress={this.testHttpRequest}>
 																	<Image source={ otherImages['03'] } style={styles.iconsImg} />
 															</Button>
 															<Button style={styles.backgroundButton} >
