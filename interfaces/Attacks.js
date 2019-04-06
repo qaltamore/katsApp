@@ -20,7 +20,7 @@ export default class Attacks extends React.Component {
     }
 
     render() {
-        const {navigate} = this.props.navigation;
+        const {navigate} = this.props.navigation
         
         //192.168.43.224
         //172.16.2.220

@@ -15,12 +15,12 @@ class Shop extends React.Component {
 
     static navigationOptions = { title: 'Kats', header: null }
     
-    setMyCurrentKat(kat) {
-        this.props.setKat(kat)
+    setMyCurrentKat(katName) {
+        this.props.setKat(katName)
     }
 
     render() {
-        const {navigate} = this.props.navigation;
+        const {navigate} = this.props.navigation
 
         return (
             <Container>
@@ -73,8 +73,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    setKat: kat => {
-        dispatch(setCurrentKat(kat))
+    setKat: katName => {
+        dispatch(setCurrentKat(katName))
     }
 })
 

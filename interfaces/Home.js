@@ -28,19 +28,27 @@ class Home extends React.Component {
 		}
 
 		render() {
-				const {navigate} = this.props.navigation;
+				const {navigate} = this.props.navigation
 
 				var level = "36"
 				var affection = "8"
-				var energy = "10"
 				var maxEnergy = "10"
 
-				var currentKat;
+				var currentKat
+				var currentKatEnergy
 
-				if(this.props.kat == null)
+				console.log("essai : ", this.props.kat.katName, " / ", this.props.kat.energy)
+
+				if(this.props.kat.katName == null)
 						currentKat = 'Nero'
 				else
-						currentKat = this.props.kat
+						currentKat = this.props.kat.katName
+
+
+				if(this.props.kat.energy == null)
+						currentKatEnergy = 10
+				else
+						currentKatEnergy = this.props.kat.energy
 
 				/*setTimeout(function() {
 						setInterval(function() {
@@ -56,7 +64,7 @@ class Home extends React.Component {
 													<View style={styles.containerBeforeImg}>
 															<Text style={{ flex: 1, marginTop: 5 }}>Niveau : {level}</Text>
 															<View style={styles.energyContainer}>
-																	<Icon name='flame'></Icon><Text> {energy}/{maxEnergy}</Text>
+																	<Icon name='flame'></Icon><Text> {currentKatEnergy}/{maxEnergy}</Text>
 															</View>
 													</View>
 													<View style={styles.katImgContainer}>
