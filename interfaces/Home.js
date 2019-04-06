@@ -43,8 +43,9 @@ class Home extends React.Component {
 				else
 						currentKat = this.props.kat.katName
 
+				console.log(this.props.kat.energy)
 				if(this.props.kat.energy == null)
-						currentKatEnergy = 10
+						currentKatEnergy = 1
 				else
 						currentKatEnergy = this.props.kat.energy
 
